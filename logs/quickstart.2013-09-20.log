@@ -1,0 +1,9 @@
+02:37:10.218 [qtp2727476-16] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 23505, SQLState: 23505
+02:37:10.250 [qtp2727476-16] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Unique index or primary key violation: "UK_NKCHJGL89NPVM3YJP2KTROBR_INDEX_A ON PUBLIC.ILI_BASE_USER(NAME) VALUES ( /* 35 */ 'user3' )"; SQL statement:
+insert into ili_base_user (id, createTime, creator_id, description, enable, firstLoginTime, lastLoginTime, loginCount, name, password, salt) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [23505-173]
+02:38:14.765 [qtp2727476-19] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 23505, SQLState: 23505
+02:38:14.765 [qtp2727476-19] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Unique index or primary key violation: "UK_NKCHJGL89NPVM3YJP2KTROBR_INDEX_A ON PUBLIC.ILI_BASE_USER(NAME) VALUES ( /* 36 */ 'user3' )"; SQL statement:
+insert into ili_base_user (id, createTime, creator_id, description, enable, firstLoginTime, lastLoginTime, loginCount, name, password, salt) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [23505-173]
+03:48:44.640 [qtp9118776-15] ERROR n.i.base.webbeans.authority.UserBean - 该用户以存在。[net.ili.base.entities.authority.User@1695dbf[name=user3,password=123456,salt=<null>,firstLoginTime=<null>,lastLoginTime=<null>,loginCount=0,createTime=<null>,creator=<null>,enable=true,description=,id=<null>]]
+03:52:08.671 [qtp405283-19] ERROR n.i.base.webbeans.authority.UserBean - 该用户以存在。[net.ili.base.entities.authority.User@1025fe3[name=user3,password=123456,salt=<null>,firstLoginTime=<null>,lastLoginTime=<null>,loginCount=0,createTime=<null>,creator=<null>,enable=true,description=,id=<null>]]
+03:54:50.750 [qtp15868333-12] ERROR n.i.base.webbeans.authority.UserBean - 该用户以存在。[net.ili.base.entities.authority.User@10d6b8a[name=user3,password=123456,salt=<null>,firstLoginTime=<null>,lastLoginTime=<null>,loginCount=0,createTime=<null>,creator=<null>,enable=true,description=,id=<null>]]

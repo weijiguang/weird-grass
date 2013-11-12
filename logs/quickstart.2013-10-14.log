@@ -1,0 +1,6 @@
+15:31:14.609 [qtp13619116-16] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+15:31:14.609 [qtp13619116-16] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`ili`.`ili_base_department`, CONSTRAINT `FK_fsvvhyt9qdtpl883kj7vn5qoi` FOREIGN KEY (`parent_id`) REFERENCES `ili_base_department` (`id`))
+15:31:14.734 [qtp13619116-16] ERROR n.i.b.w.organization.DepartmentBean - could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+15:36:41.781 [qtp13619116-16] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+15:36:41.781 [qtp13619116-16] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`ili`.`ili_base_department`, CONSTRAINT `FK_fsvvhyt9qdtpl883kj7vn5qoi` FOREIGN KEY (`parent_id`) REFERENCES `ili_base_department` (`id`))
+15:36:41.859 [qtp13619116-16] ERROR n.i.b.w.organization.DepartmentBean - could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement

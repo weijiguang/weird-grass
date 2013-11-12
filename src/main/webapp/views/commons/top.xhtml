@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <h:form id="topform">
+            <p:outputPanel id="logininfo">
+                <div style="padding-top: 26px;padding-right: 100px;" align="right">
+                    <p:commandLink value="登录" action="#{loginBean.prepareLogin()}" rendered="#{ not mySession.loggedIn}" immediate="true"/>
+                    <p:commandLink value="#{mySession.loginUser.name} [注销]" action="#{loginBean.logout()}" rendered="#{mySession.loggedIn}" immediate="true" update="logininfo"/>
+                </div>
+            </p:outputPanel>
+        </h:form>
+    </h:body>
+</html>

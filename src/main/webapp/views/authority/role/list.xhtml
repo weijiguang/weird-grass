@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="main">
+        <h:form>
+            <p:growl autoUpdate="true" globalOnly="true" />
+            <div>
+                <p:commandButton value="新建" action="#{roleBean.prepareAdd()}"/>
+            </div>
+
+            <div>
+                <p:dataTable var="r" value="#{roleBean.roleList}" rowKey="#{r.id}" emptyMessage="没有数据">
+                    <p:column style="width:40px;">  
+                        <p:commandButton id="selectButton" action="#{grantPermissionBean.prepareGrantPermission()}" immediate="true" icon="ui-icon-wrench" title="授权">  
+                            <f:setPropertyActionListener value="#{r}" target="#{grantPermissionBean.selectedRole}" />  
+                        </p:commandButton>  
+                    </p:column>  
+                    <p:column headerText="角色名称">
+                        <h:outputText value="#{r.name}"/>
+                    </p:column>
+                    <p:column headerText="显示名称">
+                        <h:outputText value="#{r.displayName}"/>
+                    </p:column>
+                    <p:column headerText="角色描述">
+                        <h:outputText value="#{r.description}"/>
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

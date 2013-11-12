@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="main">
+        <h:form id="grantPermissionForm">
+            <p:messages autoUpdate="true" globalOnly="true" closable="true"/>
+
+            <p:panel header="角色【 #{grantPermissionBean.selectedRole.displayName} 】的权限清单">
+                <p:tree id="resourcesTree" var="node" value="#{grantPermissionBean.resourceTree}" style="width:480px;" 
+                        selectionMode="checkbox" selection="#{grantPermissionBean.selectedNodes}">
+                    <p:treeNode>
+                        <h:outputText id="txtNode" value="#{node.displayName}"/>
+                    </p:treeNode>
+                </p:tree>
+            </p:panel>
+            <p:commandButton id="btnSave" value="保存" action="#{grantPermissionBean.savePermissionSetting()}" ajax="false"/>
+            <p:commandButton id="btnBack" value="返回" action="#{roleBean.prepareList()}" ajax="false" immediate="true"/> 
+        </h:form>
+    </ui:define>
+
+</ui:composition>

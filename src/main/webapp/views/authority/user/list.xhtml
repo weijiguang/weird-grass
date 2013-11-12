@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="main">
+        <h:form>
+            <div style="border-width:0.2em;height: 3em;">
+                <div style="height: 0.5em;"/>
+                <div style="font-size: large;border-bottom-style: solid;border-bottom-width: 1px;">
+                    <span style="margin-left: 2em;margin-top: 1em;border-style: solid;border-width: 1px;border-color:#E7E5DC; ">
+                        <p:commandLink value="注 册" action="#{userBean.prepareRegister()}" style="padding-right: 2px;padding-left: 2px;"/>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <p:dataTable var="u" value="#{userBean.userList}" rowKey="#{u.id}" emptyMessage="没有数据">
+                    <p:column style="width:40px;">  
+                        <p:commandButton id="selectButton" action="#{userBean.prepareGrantRole()}" immediate="true" icon="ui-icon-wrench" title="分派角色">  
+                            <f:setPropertyActionListener value="#{u}" target="#{userBean.selectedUser}" />  
+                        </p:commandButton>  
+                    </p:column>  
+                    <p:column headerText="帐户名">
+                        <h:outputText value="#{u.name}"/>
+                    </p:column>
+                    <p:column headerText="描述">
+                        <h:outputText value="#{u.description}"/>
+                    </p:column>
+                    <p:column headerText="启用">
+                        <h:outputText value="#{u.enable}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

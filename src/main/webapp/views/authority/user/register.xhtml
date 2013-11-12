@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="main">
+        <h:form>
+            <p:messages autoUpdate="true" globalOnly="true" closable="true"/>
+
+            <table width="100%">
+                <tr>
+                    <td align="right" width="10%"> 
+                        <p:outputLabel for="txtname" value="用户名："/>
+                    </td>
+                    <td width="1em">
+                        <p:inputText id="txtname" label="用户名" value="#{userBean.user.name}" required="true" size="40"/>
+                    </td>
+                    <td>
+                        <p:message for="txtname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <p:outputLabel for="pwd" value="密码："/>
+                    </td>
+                    <td>
+                        <p:password id="pwd" value="#{userBean.user.password}" match="verifyPwd" required="true" size="40"
+                                    validatorMessage="密码长度必须为6-120个字符，必须包含数字和字母">
+                            <f:validateLength minimum="6" maximum="120"/>
+<!--                            <f:validateRegex pattern="^[0-9a-zA-Z]*[0-9]+[a-zA-Z]+[0-9a-zA-Z]*$"/>-->
+                        </p:password>
+                    </td>
+                    <td>
+                        <p:message for="pwd"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <p:outputLabel for="verifyPwd" value="确认密码："/>
+                    </td>
+                    <td>
+                        <p:password id="verifyPwd" value="#{userBean.user.password}" required="true" size="40"/>
+                    </td>
+                    <td>
+                        <p:message for="verifyPwd"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <p:outputLabel for="sbtnenable" value="启用："/>
+                    </td>
+                    <td colspan="2">
+                        <p:selectBooleanButton id="sbtnenable" onLabel="启用" offLabel="禁用" value="#{userBean.user.enable}" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <p:outputLabel for="txtadesc" value="描述："/>
+                    </td>
+                    <td colspan="2">
+                        <p:inputTextarea id="txtadesc" rows="3" value="#{userBean.user.description}" cols="60"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                    </td>
+                    <td colspan="2">
+                        <p:commandButton value="保存" action="#{userBean.register()}" ajax="false"/>
+                        <span style="width: 2em;"/>
+                        <p:commandButton value="重置" action="#{userBean.prepareRegister()}" ajax="false" immediate="true"/>
+                        <span style="width: 2em;"/>
+                        <p:commandButton value="返回" action="#{userBean.prepareList()}" ajax="false" immediate="true"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

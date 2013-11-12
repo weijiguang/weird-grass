@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <!--  
+            <h:outputScript> 和 <h:outputStylesheet> 标记有两个属性，分别指定了脚本或样式表：
+            library 和 name。library 名称对应于 resources 目录下的子目录，
+            这是保存资源的位置。例如，如果在 resources/css/en 目录中有一个样式表，
+            那么 library 将为 css/en。
+            注：
+            <h:outputScript> 和 <h:outputStylesheet> 应当位于<h:head>或<h:body>中，
+            不能位于<html>中，否则无效。
+            使用这两个标记可以确保引用资源的url不随页面相对资源的路径变化而变化，
+            极大的提升了页面的可流动性。
+            -->
+            <h:outputStylesheet library="css" name="default.css"/>
+            <h:outputStylesheet library="css" name="layout.css"/>
+            <h:outputStylesheet library="css/syntaxhighlighter" name="syntaxhighlighter.css"/> 
+            <!--<h:outputScript library="syntaxhighlighter/scripts" name="sh.js"/>-->
+            <title>ili base</title>
+
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="60" gutter="0" style="margin: 0 0 0 0; padding: 0 0 0 0; border-bottom-style: solid;">
+                    <ui:insert name="top">
+                        <ui:include src="/views/commons/top.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="40" gutter="0" style="margin: 0 0 0 0; padding: 0 0 0 0;">
+                    <ui:insert name="bottom">
+                        <ui:include src="/views/commons/footer.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="200" collapsible="true" gutter="4">
+                    <ui:insert name="left">
+                        <ui:include src="/views/commons/leftmenu.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" >
+                    <ui:insert name="main">主体</ui:insert>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+    </f:view>
+</html>

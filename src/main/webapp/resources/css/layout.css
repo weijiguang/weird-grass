@@ -1,0 +1,88 @@
+.ui-layout-unit {
+    visibility: hidden;
+    padding: 0.2em;
+    margin: 0 0 0 0; 
+    padding:0 0 0 0; 
+    /*border-style: hidden;*/
+}
+
+.ui-layout-unit-header, .ui-layout-unit-footer {
+    /*padding: 0.4em 0.2em 0.4em 0.4em;*/
+    padding: 0.4em 0.2em 0.4em 0.4em;
+    border-style: hidden;
+    margin: 0 0 0 0; 
+    padding:0 0 0 0; 
+    /*border-style: hidden;*/
+    border-bottom-style: solid;
+}
+
+.ui-layout-unit-header-title, .ui-layout-unit-footer-title {
+
+}
+
+.ui-layout-unit .ui-layout-unit-content {
+    padding: 0.2em 0em;
+    border: 0px none;
+    overflow: auto;
+}
+
+.ui-layout-unit-header-icon {
+    float: right;
+}
+
+.ui-layout-unit-header-icon,
+.ui-layout-unit-header-icon:hover,
+.ui-layout-unit-header-icon:focus {
+    margin-right: 0.2em;
+    margin-top:-0.2em;
+}
+
+.ui-layout-unit-expand-icon {
+    display: block;
+    width:16px;
+    position: absolute;
+    left:4px;
+    top:2px;
+}
+
+
+/* 表格*/
+.div-table
+{
+float:left;
+width: 624px;
+background: #fff;
+border: solid #cde2f5;
+border-width:1px 0px 0px 1px;
+}
+.div-table-header
+{
+float:left;
+padding:6px 0px 6px 10px;
+width: 613px;
+background: #f4f8fd;
+color:#333;
+font: bold 13px 宋体,Verdana;
+border: solid #cde2f5;
+border-width:0px 1px 1px 0px;
+}
+.div-table ul
+{
+padding:0px;
+margin:0px;
+list-style: none
+}
+.div-table li
+{
+float:left;
+width: 145px;
+line-height: 25px;
+padding-left:10px;
+border: solid #cde2f5;
+border-width:0px 1px 1px 0px;
+}
+.div-table ul  li a
+{
+font-size:12px;
+text-decoration:none;
+} 

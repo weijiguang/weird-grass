@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="main">
+        <h:form>
+            <p:growl autoUpdate="true" globalOnly="true" />
+            <div>
+                <p:commandButton value="新建" action="#{modulesBean.prepareAdd()}"/>
+            </div>
+
+            <div>
+                <p:dataTable var="module" value="#{modulesBean.moduleList}" rowKey="#{module.id}" emptyMessage="没有数据">
+                    <p:column headerText="模块名称">
+                        <h:outputText value="#{module.name}"/>
+                    </p:column>
+                    <p:column headerText="显示名称">
+                        <h:outputText value="#{module.displayName}"/>
+                    </p:column>
+                    <p:column headerText="模块描述">
+                        <h:outputText value="#{module.description}"/>
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

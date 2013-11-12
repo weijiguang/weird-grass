@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="1" style="width: 100%;">
+                <h:commandLink value="用户管理" action="#{userBean.prepareList()}"/>
+                <h:commandLink value="机构管理" action="#{organizationBean.preparelist()}"/>
+                <h:commandLink value="部门管理" action="#{departmentBean.prepareList()}"/>
+                <h:commandLink value="模块管理" action="#{modulesBean.prepareList()}"/>
+                <h:commandLink value="角色管理" action="#{roleBean.prepareList()}"/>
+                <h:commandLink value="资源管理" action="#{resourceBean.prepareList()}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
