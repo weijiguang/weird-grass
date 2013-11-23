@@ -22,7 +22,7 @@
     <description>Shiro安全配置</description>
 
     <!-- 自定义shiro的realm数据库身份验证 -->
-    <bean id="myJpaRealm" class="net.ili.base.services.authority.IliJpaRealm">
+    <bean id="myJpaRealm" class="net.ili.grass.services.authority.IliJpaRealm">
         <!--<property name="userDao" ref="userDao"/>-->
         <property name="authorizationCacheName" value="shiroAuthorizationCache" />
     </bean>
@@ -57,7 +57,7 @@
         2、URL可使用通配符，**代表任意子目录 
         3、Shiro验证URL时，URL匹配成功便不再继续匹配查找(shiro读取url是由上到下依次读取)。所以要注意配置文件中的URL顺序，尤其在使用通配符时。
     -->
-    <bean id="myFilterChainDefinition" class="net.ili.base.services.authority.MyFilterChainDefinition">
+    <bean id="myFilterChainDefinition" class="net.ili.grass.services.authority.MyFilterChainDefinition">
         <!-- 默认的连接配置 -->
         <property name="filterChainDefinitions">
             <value>

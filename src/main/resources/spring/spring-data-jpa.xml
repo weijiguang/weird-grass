@@ -38,7 +38,7 @@
     <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!-- Spring Data Jpa配置 -->
-    <jpa:repositories base-package="net.ili.base.dao"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory"/>
+    <jpa:repositories base-package="net.ili.grass.dao"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory"/>
     <!-- JSR303 Validator定义 -->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
     	

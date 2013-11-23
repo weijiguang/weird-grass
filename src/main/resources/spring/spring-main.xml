@@ -25,7 +25,7 @@
     <!-- 激活spring的注解. -->
     <context:annotation-config/>
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <context:component-scan base-package="net.ili.base"/>
+    <context:component-scan base-package="net.ili.grass"/>
     
     <import resource="spring-data-jpa.xml"/>
     <import resource="spring-shiro.xml"/>

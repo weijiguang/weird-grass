@@ -6,7 +6,7 @@
 
     <application>
         <!-- 配置自定义的导航管理器。重定向方式全部使用 Redirect -->
-        <navigation-handler>net.ili.base.util.RedirectNavigationHandler</navigation-handler>
+        <navigation-handler>net.ili.grass.util.RedirectNavigationHandler</navigation-handler>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
         <!--多个资源文件配置例子-->
         <!--    
