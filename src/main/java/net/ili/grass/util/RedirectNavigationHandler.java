@@ -5,13 +5,15 @@
  */
 package net.ili.grass.util;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 import javax.faces.application.ConfigurableNavigationHandler;
 import javax.faces.application.NavigationCase;
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
-import org.apache.commons.lang3.StringUtils;
+import org.omnifaces.util.Faces;
+import org.slf4j.LoggerFactory;
 
 /**
  * 自定义JSF导航管理器，使用redirect方式导航
@@ -25,17 +27,18 @@ import org.apache.commons.lang3.StringUtils;
 //</application>  
 public class RedirectNavigationHandler extends ConfigurableNavigationHandler {
 
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(RedirectNavigationHandler.class);
     @SuppressWarnings("FieldMayBeFinal")
-    private NavigationHandler parent;
+    private NavigationHandler navigationHandler;
 
-    public RedirectNavigationHandler(NavigationHandler parent) {
-        this.parent = parent;
+    public RedirectNavigationHandler(NavigationHandler navigationHandler) {
+        this.navigationHandler = navigationHandler;
     }
 
     @Override
     public NavigationCase getNavigationCase(FacesContext context, String fromAction, String outcome) {
-        if (parent instanceof ConfigurableNavigationHandler) {
-            return ((ConfigurableNavigationHandler) parent).getNavigationCase(context, fromAction, outcome);
+        if (navigationHandler instanceof ConfigurableNavigationHandler) {
+            return ((ConfigurableNavigationHandler) navigationHandler).getNavigationCase(context, fromAction, outcome);
         } else {
             return null;
         }
@@ -43,18 +46,23 @@ public class RedirectNavigationHandler extends ConfigurableNavigationHandler {
 
     @Override
     public Map<String, Set<NavigationCase>> getNavigationCases() {
-        if (parent instanceof ConfigurableNavigationHandler) {
-            return ((ConfigurableNavigationHandler) parent).getNavigationCases();
+        if (navigationHandler instanceof ConfigurableNavigationHandler) {
+            return ((ConfigurableNavigationHandler) navigationHandler).getNavigationCases();
         } else {
             return null;
         }
     }
 
     @Override
-    public void handleNavigation(FacesContext context, String from, String outcome) {
-        if (StringUtils.isNotEmpty(outcome) && !outcome.endsWith("?faces-redirect=true")) {
-            outcome += "?faces-redirect=true";
+    public void handleNavigation(FacesContext context, String fromAction, String outcome) {
+        NavigationCase navigationCase = getNavigationCase(context, fromAction, outcome);
+        if (navigationCase != null && navigationCase.isRedirect() == false) {
+            try {
+                Faces.redirect(navigationCase.getToViewId(context), "");
+            } catch (IOException ex) {
+                log.error("redirect Exception." + ex.getMessage());
+            }
         }
-        parent.handleNavigation(context, from, outcome);
+        navigationHandler.handleNavigation(context, fromAction, outcome);
     }
 }
